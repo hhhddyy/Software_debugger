@@ -1,5 +1,13 @@
 # Software_debugger
-The project is mainly finished by ddsluke, a famous programmer in polyu pq604
+The project is mainly finished by hhhddyy, a famous programmer in polyu pq604
+
+### Environment Setup
+
+```
+> pip install pandas
+> pip install matplotlib
+```
+
 <文件读取>
 text_mode_length.xls
 mode 有三种
