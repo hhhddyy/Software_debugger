@@ -79,14 +79,44 @@ def main():
     ct5 = r"output/output/crosstab/select_boundary.xlsx"
     ct6 = r"output/output/crosstab/select_process.xlsx"
 
-    # ct_merge = integrate(read_data(ct1), read_data(ct2), read_data(ct3))
-    # ct_select = integrate(read_data(ct4), read_data(ct5), read_data(ct6))
-    tt_merge_comp = integrate(read_data(tt3))
-    ct_merge_comp = integrate(read_data(ct3))
-
-    data = [tt_merge_comp, ct_merge_comp]
-
-    mpl.cmp(data, num=2, labels=["Tarantula", "Crosstab"], title="Comparison of Boundary Error", path=r'result.png')
+    mstt = [integrate(read_data(tt1), read_data(tt2), read_data(tt3)), integrate(read_data(tt4), read_data(tt5),
+                                                                                 read_data(tt6))]
+    msct = [integrate(read_data(ct1), read_data(ct2), read_data(ct3)), integrate(read_data(ct4), read_data(ct5),
+                                                                                 read_data(ct6))]
+    mtt = [integrate(read_data(tt1)), integrate(read_data(tt2)), integrate(read_data(tt3))]
+    stt = [integrate(read_data(tt4)), integrate(read_data(tt5)), integrate(read_data(tt6))]
+    mct = [integrate(read_data(ct1)), integrate(read_data(ct2)), integrate(read_data(ct3))]
+    sct = [integrate(read_data(ct4)), integrate(read_data(ct5)), integrate(read_data(ct6))]
+    mc = [integrate(read_data(tt1)), integrate(read_data(ct1))]
+    mb = [integrate(read_data(tt2)), integrate(read_data(ct2))]
+    mp = [integrate(read_data(tt3)), integrate(read_data(ct3))]
+    sc = [integrate(read_data(tt4)), integrate(read_data(ct4))]
+    sb = [integrate(read_data(tt5)), integrate(read_data(ct5))]
+    sp = [integrate(read_data(tt6)), integrate(read_data(ct6))]
+    mpl.cmp(mstt, num=2, labels=["Merge", "Select"], title="Comparison of Merge and Select (Tarantula)",
+            path=r'mstt.png')
+    mpl.cmp(msct, num=2, labels=["Merge", "Select"], title="Comparison of Merge and Select (Crosstab)",
+            path=r'msct.png')
+    mpl.cmp(mtt, num=3, labels=["Computation", "Boundary", "Process"], title="Tarantula on Different Errors (Merge)",
+            path=r'mtt.png')
+    mpl.cmp(stt, num=3, labels=["Computation", "Boundary", "Process"], title="Tarantula on Different Errors (Select)",
+            path=r'stt.png')
+    mpl.cmp(mct, num=3, labels=["Computation", "Boundary", "Process"], title="Crosstab on Different Errors (Merge)",
+            path=r'mct.png')
+    mpl.cmp(sct, num=3, labels=["Computation", "Boundary", "Process"], title="Crosstab on Different Errors (Select)",
+            path=r'sct.png')
+    mpl.cmp(mc, num=2, labels=["Tarantula", "Crosstab"], title="Debugger Comparison on Computation Errors (Merge)",
+            path=r'mc.png')
+    mpl.cmp(mb, num=2, labels=["Tarantula", "Crosstab"], title="Debugger Comparison on Boundary Errors (Merge)",
+            path=r'mb.png')
+    mpl.cmp(mp, num=2, labels=["Tarantula", "Crosstab"], title="Debugger Comparison on Process Errors (Merge)",
+            path=r'mp.png')
+    mpl.cmp(sc, num=2, labels=["Tarantula", "Crosstab"], title="Debugger Comparison on Computation Errors (Select)",
+            path=r'sc.png')
+    mpl.cmp(sb, num=2, labels=["Tarantula", "Crosstab"], title="Debugger Comparison on Boundary Errors (Select)",
+            path=r'sb.png')
+    mpl.cmp(sp, num=2, labels=["Tarantula", "Crosstab"], title="Debugger Comparison on Process Errors (Select)",
+            path=r'sp.png')
 
 
 if __name__ == "__main__":
